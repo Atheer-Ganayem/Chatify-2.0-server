@@ -1,7 +1,7 @@
 "use strict";
-let io;
+var io;
 module.exports = {
-    init: (httpServer) => {
+    init: function (httpServer) {
         io = require("socket.io")(httpServer, {
             cors: {
                 origin: process.env.frontend_domain,
@@ -10,7 +10,7 @@ module.exports = {
         });
         return io;
     },
-    getIo: () => {
+    getIo: function () {
         if (!io) {
             throw new Error("Socket.io not initialized!");
         }
